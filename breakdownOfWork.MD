@@ -4,7 +4,7 @@ Github private repository has created.
 Sprint 1: March 26
 
 Tama I:
-
+1. Added Find to the update and delete function in reminder_controllers
 Margad J:
 
 Di G:
