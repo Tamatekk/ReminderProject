@@ -5,9 +5,12 @@ Sprint 1: March 26
 
 Tama I:
 1. Added Find to the update and delete function in reminder_controllers
+
 Margad J:
 
+
 Di G:
+
 
 Jordan G:
 1. Added names and formatting to breakdown
