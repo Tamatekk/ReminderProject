@@ -14,3 +14,15 @@ Di G:
 
 Jordan G:
 1. Added names and formatting to breakdown
+
+Sprint 2: April 2 (No work completed due to more immediate assignments)
+
+Sprint 3: April 9
+Tama I:
+
+Margad J:
+
+Di G:
+
+Jordan G:
+1. Attempted to begin implementing local authentication
