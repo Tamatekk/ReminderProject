@@ -18,6 +18,7 @@ Jordan G:
 Sprint 2: April 2 (No work completed due to more immediate assignments)
 
 Sprint 3: April 9
+
 Tama I:
 
 Margad J:
