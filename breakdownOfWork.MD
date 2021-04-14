@@ -5,8 +5,6 @@ Sprint 1: March 26
 
 Tama I:
 1. Added Find to the update and delete function in reminder_controllers
-2. Researched on how to utilize the splice array method
-3. Completed the update and delete functionality in reminder_controllers
 
 Margad J:
 
@@ -22,6 +20,8 @@ Sprint 2: April 2 (No work completed due to more immediate assignments)
 Sprint 3: April 9
 
 Tama I:
+1. Researched on how to utilize the splice array method
+2. Completed the update and delete functionality in reminder_controllers
 
 Margad J:
 
