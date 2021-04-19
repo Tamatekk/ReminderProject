@@ -28,4 +28,6 @@ Margad J:
 Di G:
 
 Jordan G:
-1. Attempted to begin implementing local authentication
+1. Attempted to implement local authentication
+2. Modified Database for email and password keys
+3. Modified /login to point to POST method
