@@ -31,3 +31,15 @@ Jordan G:
 1. Attempted to implement local authentication
 2. Modified Database for email and password keys
 3. Modified /login to point to POST method
+
+Sprint 3: April 16
+
+Tama I:
+1. Attempted to add the subtask functionality in reminder_controller.js
+2. modified edit.ejs and create.ejs to accomodate subtasks
+
+Margad J:
+
+Di G:
+
+Jordan G:

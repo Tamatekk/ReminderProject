@@ -27,6 +27,7 @@ let remindersController = {
       title: req.body.title,
       description: req.body.description,
       completed: false,
+      subtask: req.body.subtask
     };
     database.cindy.reminders.push(reminder);
     res.redirect("/reminders");
@@ -46,6 +47,7 @@ let remindersController = {
       title: req.body.title,
       description: req.body.description,
       completed: req.body.completed,
+      subtask: req.body.subtask
     };
     database.cindy.reminders.splice(new_reminder.id-1, 1, new_reminder);
     res.redirect("/reminders");
