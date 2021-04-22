@@ -10,10 +10,19 @@ const getUserByEmailIdAndPassword = (email, password) => {
   return null;
 };
 
+const getUserById = (id) => {
+  let user = userModel.findById(id);
+  if (user) {
+    return user;
+  }
+  return null;
+};
+
 function isUserValid(user, password) {
   return user.password === password;
 }
 
 module.exports = {
   getUserByEmailIdAndPassword,
+  getUserById
 };
