@@ -9,6 +9,6 @@ module.exports = {
     if (!req.isAuthenticated()) {
       return next();
     }
-    res.redirect("/reminder/:id");
+    res.redirect("/reminder/index");
   },
 };
