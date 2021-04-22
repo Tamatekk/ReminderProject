@@ -1,0 +1,205 @@
+[1mdiff --git a/breakdownOfWork.MD b/breakdownOfWork.MD[m
+[1mindex d60de88..a6cb71e 100644[m
+[1m--- a/breakdownOfWork.MD[m
+[1m+++ b/breakdownOfWork.MD[m
+[36m@@ -26,6 +26,8 @@[m [mTama I:[m
+ Margad J:[m
+ [m
+ Di G:[m
+[32m+[m[32m1. attempted to modify About ⋅ Contact ⋅ Terms of Use ⋅ Privacy Policy[m
+[32m+[m[32m2. atempter to add local authentication[m
+ [m
+ Jordan G:[m
+ 1. Attempted to implement local authentication[m
+[1mdiff --git a/controller/auth_controller.js b/controller/auth_controller.js[m
+[1mindex 85c9cf7..cf28b70 100644[m
+[1m--- a/controller/auth_controller.js[m
+[1m+++ b/controller/auth_controller.js[m
+[36m@@ -1,4 +1,5 @@[m
+ let database = require("../database");[m
+[32m+[m[32mconst getUserByEmailIdAndPassword = require("./user_controller");[m
+ [m
+ let authController = {[m
+   login: (req, res) => {[m
+[36m@@ -11,7 +12,13 @@[m [mlet authController = {[m
+ [m
+   loginSubmit: (req, res) => {[m
+     // implement[m
+[31m-  },[m
+[32m+[m[32m    let email= req.body.email[m
+[32m+[m[32m    let password = req.body.email[m
+[32m+[m[32m    let user = getUserByEmailIdAndPassword(email, password)[m
+[32m+[m[32m    console.log(email,password)[m
+[32m+[m[32m    let user_id = user.id[m
+[32m+[m[32m    res.redirect("reminder/index")[m
+[32m+[m[32m },[m
+ [m
+   registerSubmit: (req, res) => {[m
+     // implement[m
+[1mdiff --git a/database.js b/database.js[m
+[1mindex eece412..7a6d543 100644[m
+[1m--- a/database.js[m
+[1m+++ b/database.js[m
+[36m@@ -1,10 +1,20 @@[m
+ let Database = {[m
+     cindy: {[m
+[31m-        reminders: [{id: 1, title: "abc", description: "abcabc", completed: false}][m
+[32m+[m[32m        email:"cindy@bcit.ca",[m
+[32m+[m[32m        password:"cindy",[m
+[32m+[m[32m        id: 6666,[m
+[32m+[m[32m        reminders: [{id: 1, title: "Cindy First Reminder", description: "Hello", completed: false},[m
+[32m+[m[32m                    {id: 2, title: "Cindy Second Reminder", description: "World", completed: false},[m[41m   [m
+[32m+[m[32m                    ],[m
+     },[m
+     alex: {[m
+[31m-        reminders: [][m
+[32m+[m[32m        email:"alex@bcit.ca",[m
+[32m+[m[32m        password:"alex",[m
+[32m+[m[32m        id: 7777,[m
+[32m+[m[32m        reminders: [[{id: 1, title: "Alex First Reminder", description: "Hi", completed: false},[m
+[32m+[m[32m        {id: 2, title: "Alex Second Reminder", description: "BCIT", completed: false},[m[41m   [m
+[32m+[m[32m        ],][m
+     } [m
+ }[m
+ [m
+[31m-module.exports = Database;[m
+\ No newline at end of file[m
+[32m+[m[32mmodule.exports = Database[m
+\ No newline at end of file[m
+[1mdiff --git a/index.js b/index.js[m
+[1mindex 05b4f9e..148b9b8 100644[m
+[1m--- a/index.js[m
+[1m+++ b/index.js[m
+[36m@@ -37,6 +37,22 @@[m [mapp.get("/login", authController.login);[m
+ app.post("/register", authController.registerSubmit);[m
+ app.post("/login", authController.loginSubmit);[m
+ [m
+[32m+[m[32mapp.get("/about", (req, res) => {[m
+[32m+[m[32m  res.render("others/about")[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mapp.get("/term", (req, res) => {[m
+[32m+[m[32m  res.render("others/term")[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mapp.get("/contact",(req, res) => {[m
+[32m+[m[32m  res.render("others/contact")[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mapp.get("/privacy",(req, res) => {[m
+[32m+[m[32m  res.render("others/privacy")[m
+[32m+[m[32m});[m
+[32m+[m
+ app.listen(3001, function () {[m
+   console.log([m
+     "Server running. Visit: localhost:3001/reminders in your browser 🚀"[m
+[1mdiff --git a/public/index.html b/public/index.html[m
+[1mindex d69d62c..178cdf6 100644[m
+[1m--- a/public/index.html[m
+[1m+++ b/public/index.html[m
+[36m@@ -125,14 +125,14 @@[m
+           </div>[m
+           <div class="col-lg-4">[m
+             <div class="testimonial-item mx-auto mb-5 mb-lg-0">[m
+[31m-              <img class="img-fluid rounded-circle mb-3" src="https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg" alt="">[m
+[32m+[m[32m              <img class="img-fluid rounded-circle mb-3" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">[m
+               <h5>Fred S.</h5>[m
+               <p class="font-weight-light mb-0">"Take my money."</p>[m
+             </div>[m
+           </div>[m
+           <div class="col-lg-4">[m
+             <div class="testimonial-item mx-auto mb-5 mb-lg-0">[m
+[31m-              <img class="img-fluid rounded-circle mb-3" src="https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg" alt="">[m
+[32m+[m[32m              <img class="img-fluid rounded-circle mb-3" src="https://images.unsplash.com/photo-1557296387-5358ad7997bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">[m
+               <h5>Sarah	W.</h5>[m
+               <p class="font-weight-light mb-0">"Thanks so much for making this!"</p>[m
+             </div>[m
+[36m@@ -148,19 +148,19 @@[m
+           <div class="col-lg-6 h-100 text-center text-lg-left my-auto">[m
+             <ul class="list-inline mb-2">[m
+               <li class="list-inline-item">[m
+[31m-                <a href="#">About</a>[m
+[32m+[m[32m                <a href="/about">About</a>[m
+               </li>[m
+               <li class="list-inline-item">&sdot;</li>[m
+               <li class="list-inline-item">[m
+[31m-                <a href="#">Contact</a>[m
+[32m+[m[32m                <a href="/contact">Contact</a>[m
+               </li>[m
+               <li class="list-inline-item">&sdot;</li>[m
+               <li class="list-inline-item">[m
+[31m-                <a href="#">Terms of Use</a>[m
+[32m+[m[32m                <a href="/term">Terms of Use</a>[m
+               </li>[m
+               <li class="list-inline-item">&sdot;</li>[m
+               <li class="list-inline-item">[m
+[31m-                <a href="#">Privacy Policy</a>[m
+[32m+[m[32m                <a href="/privacy">Privacy Policy</a>[m
+               </li>[m
+             </ul>[m
+             <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>[m
+[1mdiff --git a/views/auth/login.ejs b/views/auth/login.ejs[m
+[1mindex 5dbe4a6..ed65080 100644[m
+[1m--- a/views/auth/login.ejs[m
+[1m+++ b/views/auth/login.ejs[m
+[36m@@ -3,12 +3,12 @@[m
+       <div class="form-group">[m
+         <h3 class="text-center">Login</h3>[m
+         <label for="exampleInputEmail1">Email address</label>[m
+[31m-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">[m
+[32m+[m[32m        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">[m
+         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>[m
+       </div>[m
+       <div class="form-group">[m
+         <label for="exampleInputPassword1">Password</label>[m
+[31m-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">[m
+[32m+[m[32m        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">[m
+       </div>[m
+       <button type="submit" class="btn btn-primary">Submit</button>[m
+     </form>[m
+[1mdiff --git a/views/layout.ejs b/views/layout.ejs[m
+[1mindex 1b95418..b5dcc9f 100644[m
+[1m--- a/views/layout.ejs[m
+[1m+++ b/views/layout.ejs[m
+[36m@@ -7,6 +7,25 @@[m
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>[m
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">[m
+     <link rel="stylesheet" href="/style.css">[m
+[32m+[m[32m    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">[m
+[32m+[m[32m    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">[m
+[32m+[m
+[32m+[m[32m    <style>[m
+[32m+[m[32m      .bd-placeholder-img {[m
+[32m+[m[32m        font-size: 1.125rem;[m
+[32m+[m[32m        text-anchor: middle;[m
+[32m+[m[32m        -webkit-user-select: none;[m
+[32m+[m[32m        -moz-user-select: none;[m
+[32m+[m[32m        user-select: none;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      @media (min-width: 768px) {[m
+[32m+[m[32m        .bd-placeholder-img-lg {[m
+[32m+[m[32m          font-size: 3.5rem;[m
+[32m+[m[32m        }[m
+[32m+[m[32m      }[m
+[32m+[m[32m    </style>[m
+[32m+[m[32m    <link href="cover.css" rel="stylesheet">[m
+   </head>[m
+   <body>[m
+     <% include ./partials/navbar %>[m
+[1mdiff --git a/views/reminder/index.ejs b/views/reminder/index.ejs[m
+[1mindex 2e3abf7..8f900ee 100644[m
+[1m--- a/views/reminder/index.ejs[m
+[1m+++ b/views/reminder/index.ejs[m
+[36m@@ -14,6 +14,11 @@[m
+       <% } %>[m
+       <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>[m
+     </li>[m
+[32m+[m[32m    <% for(var i=0; i <5; i++) { %>[m
+[32m+[m
+[32m+[m[32m      <li>Hello</li>[m
+[32m+[m[41m      [m
+[32m+[m[32m      <%= } %>[m
+   <% }) %>[m
+ </ul>[m
+ [m
