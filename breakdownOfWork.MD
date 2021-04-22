@@ -35,10 +35,11 @@ Jordan G:
 Sprint 3: April 16
 
 Tama I:
-1. Attempted to add the subtask functionality in reminder_controller.js
-2. modified edit.ejs and create.ejs to accomodate subtasks
+1. Added the subtask functionality in reminder_controller.js
+2. modified edit.ejs, single-reminder.ejs and create.ejs to accomodate subtasks
 3. researched how to make checkboxes in HTML
 4. researched unsplash API to attempt to add an API to the project
+5. Attempted to create a feature to change profile pictures with unsplash
 
 Margad J:
 

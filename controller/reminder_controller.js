@@ -1,6 +1,9 @@
 let database = require("../database");
 
 let remindersController = {
+  profile:(req,res) => {
+    res.render("reminder/profile");
+  },
   list: (req, res) => {
     res.render("reminder/index", { reminders: database.cindy.reminders });
   },
