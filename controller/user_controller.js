@@ -1,3 +1,5 @@
+let database = require("../database");
+
 let userController = {
   findByEmail: (email) => {
   const user = database.find((user) => user.email === email);
@@ -36,7 +38,6 @@ let userController = {
   isUserValid: (user, password) => {
   return user.password === password;
 },
-
 }
 
 module.exports = userController
