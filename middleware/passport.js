@@ -1,7 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const getUserByEmailIdAndPassword = require("../controller/user_controller")
-const getUserById = require("../controller/user_controller")
+const userController = require("../controller/user_controller")
 
 const localLogin = new LocalStrategy(
     {
@@ -9,7 +8,7 @@ const localLogin = new LocalStrategy(
       passwordField: "password",
     },
     (email, password, done) => {
-      const user = getUserByEmailIdAndPassword(email, password);
+      const user = userController.getUserByEmailIdAndPassword(email, password);
       return user
         ? done(null, user)
         : done(null, false, {
@@ -23,7 +22,7 @@ const localLogin = new LocalStrategy(
   });
   
   passport.deserializeUser(function (id, done) {
-    let user = getUserById(id);
+    let user = userController.getUserById(id);
     if (user) {
       done(null, user);
     } else {
