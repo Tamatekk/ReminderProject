@@ -37,6 +37,22 @@ app.get("/login", authController.login);
 app.post("/register", authController.registerSubmit);
 app.post("/login", authController.loginSubmit);
 
+app.get("/about", (req, res) => {
+  res.render("others/about")
+});
+
+app.get("/term", (req, res) => {
+  res.render("others/term")
+});
+
+app.get("/contact",(req, res) => {
+  res.render("others/contact")
+});
+
+app.get("/privacy",(req, res) => {
+  res.render("others/privacy")
+});
+
 app.listen(3001, function () {
   console.log(
     "Server running. Visit: localhost:3001/reminders in your browser 🚀"
