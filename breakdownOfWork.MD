@@ -55,3 +55,12 @@ Di G:
 
 
 Jordan G:
+
+Margad J:
+1. Fixed a bug that made users reminders display incorrectly.
+2. Modified loginSubmit, implemented user email authentication.
+3. Modified reminder_controller, users can only see thier own reminders.
+4. Modified userController, fixed syntax errors, updated findByMail now it can work with dictionary.
+5. Modified database, no longer cause error.
+6. Few other minor modifications
+
