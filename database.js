@@ -1,4 +1,4 @@
-let Database = {
+let database = {
     cindy: {
         profilepic: "https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg",
         email:"cindy@bcit.ca",
@@ -14,9 +14,9 @@ let Database = {
         email:"alex@bcit.ca",
         password:"alex",
         id: 7777,
-        reminders: [[{id: 1, title: "Alex First Reminder", description: "Hi", completed: false, subtask: ["test"]},
-        {id: 2, title: "Alex Second Reminder", description: "BCIT", completed: false, subtask: ["test"]},   
-        ],]
+        reminders: [{id: 1, title: "Alex First Reminder", description: "Hi", completed: false, subtask: ["test"]},
+                    {id: 2, title: "Alex Second Reminder", description: "BCIT", completed: false, subtask: ["test"]},   
+                    ],
     },
 
     Sarah: {
@@ -24,10 +24,10 @@ let Database = {
         email:"sarah@bcit.ca",
         password:"sarah",
         id: 8888,
-        reminders: [[{id: 1, title: "Sarah First Reminder", description: "Awesome", completed: false, subtask: ["test"]},
-        {id: 2, title: "Sarah Second Reminder", description: "Perfect", completed: false, subtask: ["test"]},   
-        ],]
+        reminders: [{id: 1, title: "Sarah First Reminder", description: "Awesome", completed: false, subtask: ["test"]},
+                    {id: 2, title: "Sarah Second Reminder", description: "Perfect", completed: false, subtask: ["test"]},   
+                    ],
     } 
 }
 
-module.exports = Database
+module.exports = database;
