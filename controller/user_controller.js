@@ -2,9 +2,10 @@ let database = require("../database");
 
 let userController = {
   findByEmail: (email) => {
-  const user = database.find((user) => user.email === email);
-  if (user) {
-    return user;
+  for (let name in database) {
+    if (database[name].email === email) {
+      return database[name]
+    }
   }
   throw new Error(`Couldn't find user with email: ${email}`);
 },
@@ -18,9 +19,9 @@ let userController = {
 },
 
   getUserByEmailIdAndPassword : (email, password) => {
-  let user = findByEmail(email);
+  let user = userController.findByEmail(email);
   if (user) {
-    if (isUserValid(user, password)) {
+    if (userController.isUserValid(user, password)) {
       return user;
     }
   }
@@ -28,7 +29,7 @@ let userController = {
 } ,
 
   getUserById : (id) => {
-  let user = findById(id);
+  let user = userController.findById(id);
   if (user) {
     return user;
   }
@@ -40,4 +41,4 @@ let userController = {
 },
 }
 
-module.exports = userController
+module.exports = userController;
