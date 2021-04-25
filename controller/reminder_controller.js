@@ -6,12 +6,10 @@ let remindersController = {
   },
   list: (req, res) => {
     let name = req.query.name;
-    console.log(name);
     let reminder = null;
     for (let user in database) {
       if (database[user].password === name) {
         reminder = database[user].reminders;
-        console.log(reminder);
         break;
       }
     }
